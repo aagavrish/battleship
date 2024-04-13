@@ -1,0 +1,29 @@
+\label{index_md_README}%
+\Hypertarget{index_md_README}%
+ \char`\"{}Морской бой\char`\"{} -\/ это классическая игра, в которой два игрока по очереди пытаются уничтожить корабли друг друга.\hypertarget{index_autotoc_md1}{}\doxysection{Архитектура}\label{index_autotoc_md1}
+Игра использует архитектуру клиент-\/сервер. Сервер обрабатывает все игровые сессии, а клиенты подключаются к серверу для игры. Для каждого подключенного пользователя сервер создает новый процесс.\hypertarget{index_autotoc_md2}{}\doxysection{Файлы}\label{index_autotoc_md2}
+
+\begin{DoxyItemize}
+\item {\ttfamily \mbox{\hyperlink{server_8c}{server.\+c}}}\+: Этот файл содержит код сервера. Он обрабатывает подключения клиентов и создает новые процессы для каждого пользователя.
+\item {\ttfamily \mbox{\hyperlink{client_8c}{client.\+c}}}\+: Этот файл содержит код клиента. Он подключается к серверу и обрабатывает ввод пользователя.
+\item {\ttfamily \mbox{\hyperlink{shared_8c}{shared.\+c}}}\+: Этот файл содержит определение функций, используемых и клиентом и сервером.
+\item {\ttfamily \mbox{\hyperlink{shared_8h}{shared.\+h}}}\+: Этот файл содержит объявления функций и структур данных, используемых в {\ttfamily \mbox{\hyperlink{shared_8c}{shared.\+c}}}.
+\end{DoxyItemize}\hypertarget{index_autotoc_md3}{}\doxysection{Использование}\label{index_autotoc_md3}
+\hypertarget{index_autotoc_md4}{}\doxysubsection{Клиент}\label{index_autotoc_md4}
+Для компиляции клиента используйте команду {\ttfamily make client\+\_\+compile}.
+
+Для запуска клиента используйте следующую команду\+:
+
+{\ttfamily ./\+Launch\+Client -\/h \mbox{[}host\mbox{]} -\/p \mbox{[}port\mbox{]} -\/n \mbox{[}username\mbox{]}}
+
+где\+:
+\begin{DoxyItemize}
+\item {\ttfamily \mbox{[}host\mbox{]}} -\/ адрес хоста сервера
+\item {\ttfamily \mbox{[}port\mbox{]}} -\/ порт сервера
+\item {\ttfamily \mbox{[}username\mbox{]}} -\/ ваше имя пользователя в игре
+\end{DoxyItemize}\hypertarget{index_autotoc_md5}{}\doxysubsection{Сервер}\label{index_autotoc_md5}
+Для компиляции сервера используйте команду {\ttfamily make server\+\_\+compile}.
+
+Для запуска сервера используйте следующую команду\+:
+
+{\ttfamily ./\+Launch\+Server} 

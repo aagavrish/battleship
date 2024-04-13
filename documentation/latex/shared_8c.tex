@@ -1,0 +1,105 @@
+\hypertarget{shared_8c}{}\doxysection{shared/shared.c File Reference}
+\label{shared_8c}\index{shared/shared.c@{shared/shared.c}}
+{\ttfamily \#include \char`\"{}shared.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Include dependency graph for shared.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{shared_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{shared_8c_a85cd4a6b130849a86705f042b7a3ec43}{parse\+\_\+int}} (void $\ast$value, const char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Функция для парсинга целочисленного значения. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{shared_8c_a3b2b83c71829097eec024f5fae768690}{parse\+\_\+string}} (void $\ast$value, const char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Функция для парсинга строкового значения. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{shared_8c_a7d2523b6a02fbe6aeca164499fde9152}{create\+\_\+game\+\_\+board}} (char $\ast$$\ast$$\ast$\mbox{\hyperlink{client_8c_a52aa3794e6bc5c84d923de87a2d4e435}{playing\+\_\+field}}, int field\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Функция для создания игрового поля. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{shared_8c_ab7eedc82cac260d38e5956e559da64c6}{destroy\+\_\+game\+\_\+board}} (char $\ast$$\ast$$\ast$\mbox{\hyperlink{client_8c_a52aa3794e6bc5c84d923de87a2d4e435}{playing\+\_\+field}}, int field\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Функция для уничтожения игрового поля. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Файл с общими функциями для сервера и клиента игры \char`\"{}Морской бой\char`\"{}. \begin{DoxyAuthor}{Author}
+Гавриш А.\+А. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+13.\+04.\+2024 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{shared_8c_a7d2523b6a02fbe6aeca164499fde9152}\label{shared_8c_a7d2523b6a02fbe6aeca164499fde9152}} 
+\index{shared.c@{shared.c}!create\_game\_board@{create\_game\_board}}
+\index{create\_game\_board@{create\_game\_board}!shared.c@{shared.c}}
+\doxysubsubsection{\texorpdfstring{create\_game\_board()}{create\_game\_board()}}
+{\footnotesize\ttfamily void create\+\_\+game\+\_\+board (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{playing\+\_\+field,  }\item[{int}]{field\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Функция для создания игрового поля. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em playing\+\_\+field} & Указатель на указатель на игровое поле. \\
+\hline
+{\em field\+\_\+size} & Размер поля. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{shared_8c_ab7eedc82cac260d38e5956e559da64c6}\label{shared_8c_ab7eedc82cac260d38e5956e559da64c6}} 
+\index{shared.c@{shared.c}!destroy\_game\_board@{destroy\_game\_board}}
+\index{destroy\_game\_board@{destroy\_game\_board}!shared.c@{shared.c}}
+\doxysubsubsection{\texorpdfstring{destroy\_game\_board()}{destroy\_game\_board()}}
+{\footnotesize\ttfamily void destroy\+\_\+game\+\_\+board (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{playing\+\_\+field,  }\item[{int}]{field\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Функция для уничтожения игрового поля. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em playing\+\_\+field} & Указатель на указатель на игровое поле. \\
+\hline
+{\em field\+\_\+size} & Размер поля. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{shared_8c_a85cd4a6b130849a86705f042b7a3ec43}\label{shared_8c_a85cd4a6b130849a86705f042b7a3ec43}} 
+\index{shared.c@{shared.c}!parse\_int@{parse\_int}}
+\index{parse\_int@{parse\_int}!shared.c@{shared.c}}
+\doxysubsubsection{\texorpdfstring{parse\_int()}{parse\_int()}}
+{\footnotesize\ttfamily void parse\+\_\+int (\begin{DoxyParamCaption}\item[{void $\ast$}]{value,  }\item[{const char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Функция для парсинга целочисленного значения. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Указатель на переменную, в которую будет записан результат. \\
+\hline
+{\em str} & Строка, содержащая значение. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{shared_8c_a3b2b83c71829097eec024f5fae768690}\label{shared_8c_a3b2b83c71829097eec024f5fae768690}} 
+\index{shared.c@{shared.c}!parse\_string@{parse\_string}}
+\index{parse\_string@{parse\_string}!shared.c@{shared.c}}
+\doxysubsubsection{\texorpdfstring{parse\_string()}{parse\_string()}}
+{\footnotesize\ttfamily void parse\+\_\+string (\begin{DoxyParamCaption}\item[{void $\ast$}]{value,  }\item[{const char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Функция для парсинга строкового значения. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Указатель на переменную, в которую будет записан результат. \\
+\hline
+{\em str} & Строка, содержащая значение. \\
+\hline
+\end{DoxyParams}

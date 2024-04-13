@@ -1,0 +1,194 @@
+\hypertarget{client_8c}{}\doxysection{client/client.c File Reference}
+\label{client_8c}\index{client/client.c@{client/client.c}}
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$getopt.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../shared/shared.\+h\char`\"{}}\newline
+Include dependency graph for client.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{client_8c_af5246484b99be1a67114e0d22df3d546}{display\+\_\+game\+\_\+status}} (char $\ast$$\ast$\mbox{\hyperlink{client_8c_a52aa3794e6bc5c84d923de87a2d4e435}{playing\+\_\+field}}, int field\+\_\+size, char $\ast$prev\+\_\+move, char $\ast$answer, int ships\+\_\+left)
+\begin{DoxyCompactList}\small\item\em Отображает текущее состояние игры. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{client_8c_ae16243d2269c73d7a3e46d94d1672d4c}{init\+\_\+configuration}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Инициализирует конфигурацию клиента. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{client_8c_a814d41151e5b33054e124a6c5b3117f0}{send\+\_\+player\+\_\+name}} (int client\+\_\+socket, char $\ast$name)
+\begin{DoxyCompactList}\small\item\em Отправляет имя игрока на сервер. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{client_8c_af1482303e45c6f6d3a32b90eb39ed1d6}{connect\+\_\+to\+\_\+server}} (int $\ast$client\+\_\+socket)
+\begin{DoxyCompactList}\small\item\em Подключается к серверу. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{shared_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{client_8c_a37b1bac91f8dd791d32173ef5a84deb6}{make\+\_\+move}} (char $\ast$move)
+\begin{DoxyCompactList}\small\item\em Считывает ход игрока. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{client_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Главная функция клиента. Инициализирует конфигурацию, создает сокет клиента, подключается к серверу и отправляет имя пользователя. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structClientConfig}{Client\+Config}} \mbox{\hyperlink{client_8c_a1b7330a63adb86a9fc92a875e4c722fc}{config}}
+\item 
+\mbox{\hyperlink{structConfigOption}{Config\+Option}} \mbox{\hyperlink{client_8c_a29155525d19b953df43385744a19dcf0}{options}} \mbox{[}$\,$\mbox{]}
+\item 
+char $\ast$$\ast$ \mbox{\hyperlink{client_8c_a52aa3794e6bc5c84d923de87a2d4e435}{playing\+\_\+field}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Файл клиента игры \char`\"{}Морской бой\char`\"{}. \begin{DoxyAuthor}{Author}
+Гавриш А.\+А. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+13.\+04.\+2024 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{client_8c_af1482303e45c6f6d3a32b90eb39ed1d6}\label{client_8c_af1482303e45c6f6d3a32b90eb39ed1d6}} 
+\index{client.c@{client.c}!connect\_to\_server@{connect\_to\_server}}
+\index{connect\_to\_server@{connect\_to\_server}!client.c@{client.c}}
+\doxysubsubsection{\texorpdfstring{connect\_to\_server()}{connect\_to\_server()}}
+{\footnotesize\ttfamily void connect\+\_\+to\+\_\+server (\begin{DoxyParamCaption}\item[{int $\ast$}]{client\+\_\+socket }\end{DoxyParamCaption})}
+
+
+
+Подключается к серверу. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+\_\+socket} & Сокет клиента. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{client_8c_af5246484b99be1a67114e0d22df3d546}\label{client_8c_af5246484b99be1a67114e0d22df3d546}} 
+\index{client.c@{client.c}!display\_game\_status@{display\_game\_status}}
+\index{display\_game\_status@{display\_game\_status}!client.c@{client.c}}
+\doxysubsubsection{\texorpdfstring{display\_game\_status()}{display\_game\_status()}}
+{\footnotesize\ttfamily void display\+\_\+game\+\_\+status (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{playing\+\_\+field,  }\item[{int}]{field\+\_\+size,  }\item[{char $\ast$}]{prev\+\_\+move,  }\item[{char $\ast$}]{answer,  }\item[{int}]{ships\+\_\+left }\end{DoxyParamCaption})}
+
+
+
+Отображает текущее состояние игры. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em playing\+\_\+field} & Игровое поле. \\
+\hline
+{\em field\+\_\+size} & Размер игрового поля. \\
+\hline
+{\em prev\+\_\+move} & Предыдущий ход. \\
+\hline
+{\em answer} & Ответ сервера на предыдущий ход. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{client_8c_ae16243d2269c73d7a3e46d94d1672d4c}\label{client_8c_ae16243d2269c73d7a3e46d94d1672d4c}} 
+\index{client.c@{client.c}!init\_configuration@{init\_configuration}}
+\index{init\_configuration@{init\_configuration}!client.c@{client.c}}
+\doxysubsubsection{\texorpdfstring{init\_configuration()}{init\_configuration()}}
+{\footnotesize\ttfamily void init\+\_\+configuration (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Инициализирует конфигурацию клиента. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Количество аргументов командной строки. \\
+\hline
+{\em argv} & Массив аргументов командной строки. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{client_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{client_8c_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{client.c@{client.c}!main@{main}}
+\index{main@{main}!client.c@{client.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Главная функция клиента. Инициализирует конфигурацию, создает сокет клиента, подключается к серверу и отправляет имя пользователя. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Количество аргументов командной строки. \\
+\hline
+{\em argv} & Массив аргументов командной строки. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS в случае успешного завершения, иначе EXIT\+\_\+\+FAILURE. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{client_8c_a37b1bac91f8dd791d32173ef5a84deb6}\label{client_8c_a37b1bac91f8dd791d32173ef5a84deb6}} 
+\index{client.c@{client.c}!make\_move@{make\_move}}
+\index{make\_move@{make\_move}!client.c@{client.c}}
+\doxysubsubsection{\texorpdfstring{make\_move()}{make\_move()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{shared_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} make\+\_\+move (\begin{DoxyParamCaption}\item[{char $\ast$}]{move }\end{DoxyParamCaption})}
+
+
+
+Считывает ход игрока. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em move} & Ход игрока. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true в случае ошибки, иначе false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{client_8c_a814d41151e5b33054e124a6c5b3117f0}\label{client_8c_a814d41151e5b33054e124a6c5b3117f0}} 
+\index{client.c@{client.c}!send\_player\_name@{send\_player\_name}}
+\index{send\_player\_name@{send\_player\_name}!client.c@{client.c}}
+\doxysubsubsection{\texorpdfstring{send\_player\_name()}{send\_player\_name()}}
+{\footnotesize\ttfamily void send\+\_\+player\+\_\+name (\begin{DoxyParamCaption}\item[{int}]{client\+\_\+socket,  }\item[{char $\ast$}]{name }\end{DoxyParamCaption})}
+
+
+
+Отправляет имя игрока на сервер. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+\_\+socket} & Сокет клиента. \\
+\hline
+{\em name} & Имя игрока. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{client_8c_a1b7330a63adb86a9fc92a875e4c722fc}\label{client_8c_a1b7330a63adb86a9fc92a875e4c722fc}} 
+\index{client.c@{client.c}!config@{config}}
+\index{config@{config}!client.c@{client.c}}
+\doxysubsubsection{\texorpdfstring{config}{config}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structClientConfig}{Client\+Config}} config}
+
+\mbox{\Hypertarget{client_8c_a29155525d19b953df43385744a19dcf0}\label{client_8c_a29155525d19b953df43385744a19dcf0}} 
+\index{client.c@{client.c}!options@{options}}
+\index{options@{options}!client.c@{client.c}}
+\doxysubsubsection{\texorpdfstring{options}{options}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structConfigOption}{Config\+Option}} options\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \{\textcolor{stringliteral}{"{}h"{}}, \&\mbox{\hyperlink{client_8c_a1b7330a63adb86a9fc92a875e4c722fc}{config}}.\mbox{\hyperlink{structClientConfig_aa5b7695dfb2093fa5f89c927ebe91854}{server\_address}}, \mbox{\hyperlink{shared_8c_a3b2b83c71829097eec024f5fae768690}{parse\_string}}\},}
+\DoxyCodeLine{    \{\textcolor{stringliteral}{"{}p"{}}, \&\mbox{\hyperlink{client_8c_a1b7330a63adb86a9fc92a875e4c722fc}{config}}.\mbox{\hyperlink{structClientConfig_af1190fa9a5d80c7268acd95c5b05b4b8}{server\_port}}, \mbox{\hyperlink{shared_8c_a85cd4a6b130849a86705f042b7a3ec43}{parse\_int}}\},}
+\DoxyCodeLine{    \{\textcolor{stringliteral}{"{}n"{}}, \&\mbox{\hyperlink{client_8c_a1b7330a63adb86a9fc92a875e4c722fc}{config}}.\mbox{\hyperlink{structClientConfig_af3663f4a9fdeb7a8e8295ddf2902f01f}{client\_name}}, \mbox{\hyperlink{shared_8c_a3b2b83c71829097eec024f5fae768690}{parse\_string}}\},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{client_8c_a52aa3794e6bc5c84d923de87a2d4e435}\label{client_8c_a52aa3794e6bc5c84d923de87a2d4e435}} 
+\index{client.c@{client.c}!playing\_field@{playing\_field}}
+\index{playing\_field@{playing\_field}!client.c@{client.c}}
+\doxysubsubsection{\texorpdfstring{playing\_field}{playing\_field}}
+{\footnotesize\ttfamily char$\ast$$\ast$ playing\+\_\+field}
+

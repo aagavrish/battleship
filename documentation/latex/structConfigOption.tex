@@ -1,0 +1,60 @@
+\hypertarget{structConfigOption}{}\doxysection{Config\+Option Struct Reference}
+\label{structConfigOption}\index{ConfigOption@{ConfigOption}}
+
+
+Структура для хранения опций конфигурации.  
+
+
+
+
+{\ttfamily \#include $<$shared.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \mbox{\hyperlink{structConfigOption_a0c693c636cf293f8dd5102eac6042721}{key}}
+\item 
+void $\ast$ \mbox{\hyperlink{structConfigOption_a3ec776a59e66418015b1d40cc7928406}{value}}
+\item 
+void($\ast$ \mbox{\hyperlink{structConfigOption_a422fcb8f611ff57037128f50035db8fd}{parse}} )(void $\ast$\mbox{\hyperlink{structConfigOption_a3ec776a59e66418015b1d40cc7928406}{value}}, const char $\ast$str)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Структура для хранения опций конфигурации. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Ключ опции. \\
+\hline
+{\em value} & Значение опции. \\
+\hline
+{\em parse} & Функция для парсинга значения опции. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structConfigOption_a0c693c636cf293f8dd5102eac6042721}\label{structConfigOption_a0c693c636cf293f8dd5102eac6042721}} 
+\index{ConfigOption@{ConfigOption}!key@{key}}
+\index{key@{key}!ConfigOption@{ConfigOption}}
+\doxysubsubsection{\texorpdfstring{key}{key}}
+{\footnotesize\ttfamily const char$\ast$ Config\+Option\+::key}
+
+\mbox{\Hypertarget{structConfigOption_a422fcb8f611ff57037128f50035db8fd}\label{structConfigOption_a422fcb8f611ff57037128f50035db8fd}} 
+\index{ConfigOption@{ConfigOption}!parse@{parse}}
+\index{parse@{parse}!ConfigOption@{ConfigOption}}
+\doxysubsubsection{\texorpdfstring{parse}{parse}}
+{\footnotesize\ttfamily void($\ast$ Config\+Option\+::parse) (void $\ast$\mbox{\hyperlink{structConfigOption_a3ec776a59e66418015b1d40cc7928406}{value}}, const char $\ast$str)}
+
+\mbox{\Hypertarget{structConfigOption_a3ec776a59e66418015b1d40cc7928406}\label{structConfigOption_a3ec776a59e66418015b1d40cc7928406}} 
+\index{ConfigOption@{ConfigOption}!value@{value}}
+\index{value@{value}!ConfigOption@{ConfigOption}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily void$\ast$ Config\+Option\+::value}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+shared/\mbox{\hyperlink{shared_8h}{shared.\+h}}\end{DoxyCompactItemize}
