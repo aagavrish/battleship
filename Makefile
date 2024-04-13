@@ -19,4 +19,4 @@ clean:
 	rm -f LaunchClient
 
 clean_doc:
-	rm -rf documentation
+	rm -rf docs
