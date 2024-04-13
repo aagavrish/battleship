@@ -21,8 +21,7 @@
 
 Для запуска клиента используйте следующую команду:
 
-```bash
-./LaunchClient -h [host] -p [port] -n [username]
+`./LaunchClient -h [host] -p [port] -n [username]`
 
 где:
 - `[host]` - адрес хоста сервера
@@ -35,5 +34,4 @@
 
 Для запуска сервера используйте следующую команду:
 
-```bash
-./LaunchServer
+`./LaunchServer`
