@@ -1,0 +1,190 @@
+\hypertarget{shared_8h}{}\doxysection{shared/shared.h File Reference}
+\label{shared_8h}\index{shared/shared.h@{shared/shared.h}}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{shared_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structServerConfig}{Server\+Config}}
+\begin{DoxyCompactList}\small\item\em Структура для хранения конфигурации сервера. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structClientConfig}{Client\+Config}}
+\begin{DoxyCompactList}\small\item\em Структура для хранения конфигурации клиента. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structConfigOption}{Config\+Option}}
+\begin{DoxyCompactList}\small\item\em Структура для хранения опций конфигурации. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{shared_8h_a260865d31b755a3f656df4fe291ae083}{BUF\+\_\+\+MESSAGE\+\_\+\+SIZE}}~15
+\item 
+\#define \mbox{\hyperlink{shared_8h_a09fec403516d343d5a21dacf2f701717}{CHECK\+\_\+\+LESS\+\_\+\+THAN\+\_\+\+ZERO}}(val,  msg)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{shared_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \{ \mbox{\hyperlink{shared_8h_af6a258d8f3ee5206d682d799316314b1ae9de385ef6fe9bf3360d1038396b884c}{false}} = 0
+, \mbox{\hyperlink{shared_8h_af6a258d8f3ee5206d682d799316314b1a08f175a5505a10b9ed657defeb050e4b}{true}} = 1
+ \}
+\begin{DoxyCompactList}\small\item\em Перечисленение для хранения логического значения. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{shared_8h_a881b49e3802366255ad852f1c8624fd1}{Game\+Status}} \{ \mbox{\hyperlink{shared_8h_a881b49e3802366255ad852f1c8624fd1ab13b96bf99a409e019f70dc1602532fd}{NEXT}} = 0
+, \mbox{\hyperlink{shared_8h_a881b49e3802366255ad852f1c8624fd1a843dff91ff0b0e5b98a110a512b2f531}{WIN}}
+, \mbox{\hyperlink{shared_8h_a881b49e3802366255ad852f1c8624fd1aa3c6650b8f7e145f2e4f434f5912b995}{LOSE}}
+ \}
+\begin{DoxyCompactList}\small\item\em Перечисление для хранения статуса игры. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{shared_8h_a85cd4a6b130849a86705f042b7a3ec43}{parse\+\_\+int}} (void $\ast$value, const char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Функция для парсинга целочисленного значения. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{shared_8h_a3b2b83c71829097eec024f5fae768690}{parse\+\_\+string}} (void $\ast$value, const char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Функция для парсинга строкового значения. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{shared_8h_a7d2523b6a02fbe6aeca164499fde9152}{create\+\_\+game\+\_\+board}} (char $\ast$$\ast$$\ast$\mbox{\hyperlink{client_8c_a52aa3794e6bc5c84d923de87a2d4e435}{playing\+\_\+field}}, int field\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Функция для создания игрового поля. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{shared_8h_ab7eedc82cac260d38e5956e559da64c6}{destroy\+\_\+game\+\_\+board}} (char $\ast$$\ast$$\ast$\mbox{\hyperlink{client_8c_a52aa3794e6bc5c84d923de87a2d4e435}{playing\+\_\+field}}, int field\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Функция для уничтожения игрового поля. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{shared_8h_a260865d31b755a3f656df4fe291ae083}\label{shared_8h_a260865d31b755a3f656df4fe291ae083}} 
+\index{shared.h@{shared.h}!BUF\_MESSAGE\_SIZE@{BUF\_MESSAGE\_SIZE}}
+\index{BUF\_MESSAGE\_SIZE@{BUF\_MESSAGE\_SIZE}!shared.h@{shared.h}}
+\doxysubsubsection{\texorpdfstring{BUF\_MESSAGE\_SIZE}{BUF\_MESSAGE\_SIZE}}
+{\footnotesize\ttfamily \#define BUF\+\_\+\+MESSAGE\+\_\+\+SIZE~15}
+
+\mbox{\Hypertarget{shared_8h_a09fec403516d343d5a21dacf2f701717}\label{shared_8h_a09fec403516d343d5a21dacf2f701717}} 
+\index{shared.h@{shared.h}!CHECK\_LESS\_THAN\_ZERO@{CHECK\_LESS\_THAN\_ZERO}}
+\index{CHECK\_LESS\_THAN\_ZERO@{CHECK\_LESS\_THAN\_ZERO}!shared.h@{shared.h}}
+\doxysubsubsection{\texorpdfstring{CHECK\_LESS\_THAN\_ZERO}{CHECK\_LESS\_THAN\_ZERO}}
+{\footnotesize\ttfamily \#define CHECK\+\_\+\+LESS\+\_\+\+THAN\+\_\+\+ZERO(\begin{DoxyParamCaption}\item[{}]{val,  }\item[{}]{msg }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} ((val) < 0) \{                   \(\backslash\)}
+\DoxyCodeLine{        perror((msg));                 \(\backslash\)}
+\DoxyCodeLine{        exit(EXIT\_FAILURE);            \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{shared_8h_af6a258d8f3ee5206d682d799316314b1}\label{shared_8h_af6a258d8f3ee5206d682d799316314b1}} 
+\index{shared.h@{shared.h}!bool@{bool}}
+\index{bool@{bool}!shared.h@{shared.h}}
+\doxysubsubsection{\texorpdfstring{bool}{bool}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{shared_8h_af6a258d8f3ee5206d682d799316314b1}{bool}}}
+
+
+
+Перечисленение для хранения логического значения. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{false@{false}!shared.h@{shared.h}}\index{shared.h@{shared.h}!false@{false}}}\mbox{\Hypertarget{shared_8h_af6a258d8f3ee5206d682d799316314b1ae9de385ef6fe9bf3360d1038396b884c}\label{shared_8h_af6a258d8f3ee5206d682d799316314b1ae9de385ef6fe9bf3360d1038396b884c}} 
+false&Ложь \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{true@{true}!shared.h@{shared.h}}\index{shared.h@{shared.h}!true@{true}}}\mbox{\Hypertarget{shared_8h_af6a258d8f3ee5206d682d799316314b1a08f175a5505a10b9ed657defeb050e4b}\label{shared_8h_af6a258d8f3ee5206d682d799316314b1a08f175a5505a10b9ed657defeb050e4b}} 
+true&Истина \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{shared_8h_a881b49e3802366255ad852f1c8624fd1}\label{shared_8h_a881b49e3802366255ad852f1c8624fd1}} 
+\index{shared.h@{shared.h}!GameStatus@{GameStatus}}
+\index{GameStatus@{GameStatus}!shared.h@{shared.h}}
+\doxysubsubsection{\texorpdfstring{GameStatus}{GameStatus}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{shared_8h_a881b49e3802366255ad852f1c8624fd1}{Game\+Status}}}
+
+
+
+Перечисление для хранения статуса игры. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NEXT@{NEXT}!shared.h@{shared.h}}\index{shared.h@{shared.h}!NEXT@{NEXT}}}\mbox{\Hypertarget{shared_8h_a881b49e3802366255ad852f1c8624fd1ab13b96bf99a409e019f70dc1602532fd}\label{shared_8h_a881b49e3802366255ad852f1c8624fd1ab13b96bf99a409e019f70dc1602532fd}} 
+NEXT&Следующий ход. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WIN@{WIN}!shared.h@{shared.h}}\index{shared.h@{shared.h}!WIN@{WIN}}}\mbox{\Hypertarget{shared_8h_a881b49e3802366255ad852f1c8624fd1a843dff91ff0b0e5b98a110a512b2f531}\label{shared_8h_a881b49e3802366255ad852f1c8624fd1a843dff91ff0b0e5b98a110a512b2f531}} 
+WIN&Победа. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOSE@{LOSE}!shared.h@{shared.h}}\index{shared.h@{shared.h}!LOSE@{LOSE}}}\mbox{\Hypertarget{shared_8h_a881b49e3802366255ad852f1c8624fd1aa3c6650b8f7e145f2e4f434f5912b995}\label{shared_8h_a881b49e3802366255ad852f1c8624fd1aa3c6650b8f7e145f2e4f434f5912b995}} 
+LOSE&Поражение. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{shared_8h_a7d2523b6a02fbe6aeca164499fde9152}\label{shared_8h_a7d2523b6a02fbe6aeca164499fde9152}} 
+\index{shared.h@{shared.h}!create\_game\_board@{create\_game\_board}}
+\index{create\_game\_board@{create\_game\_board}!shared.h@{shared.h}}
+\doxysubsubsection{\texorpdfstring{create\_game\_board()}{create\_game\_board()}}
+{\footnotesize\ttfamily void create\+\_\+game\+\_\+board (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{playing\+\_\+field,  }\item[{int}]{field\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Функция для создания игрового поля. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em playing\+\_\+field} & Указатель на указатель на игровое поле. \\
+\hline
+{\em field\+\_\+size} & Размер поля. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{shared_8h_ab7eedc82cac260d38e5956e559da64c6}\label{shared_8h_ab7eedc82cac260d38e5956e559da64c6}} 
+\index{shared.h@{shared.h}!destroy\_game\_board@{destroy\_game\_board}}
+\index{destroy\_game\_board@{destroy\_game\_board}!shared.h@{shared.h}}
+\doxysubsubsection{\texorpdfstring{destroy\_game\_board()}{destroy\_game\_board()}}
+{\footnotesize\ttfamily void destroy\+\_\+game\+\_\+board (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{playing\+\_\+field,  }\item[{int}]{field\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Функция для уничтожения игрового поля. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em playing\+\_\+field} & Указатель на указатель на игровое поле. \\
+\hline
+{\em field\+\_\+size} & Размер поля. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{shared_8h_a85cd4a6b130849a86705f042b7a3ec43}\label{shared_8h_a85cd4a6b130849a86705f042b7a3ec43}} 
+\index{shared.h@{shared.h}!parse\_int@{parse\_int}}
+\index{parse\_int@{parse\_int}!shared.h@{shared.h}}
+\doxysubsubsection{\texorpdfstring{parse\_int()}{parse\_int()}}
+{\footnotesize\ttfamily void parse\+\_\+int (\begin{DoxyParamCaption}\item[{void $\ast$}]{value,  }\item[{const char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Функция для парсинга целочисленного значения. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Указатель на переменную, в которую будет записан результат. \\
+\hline
+{\em str} & Строка, содержащая значение. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{shared_8h_a3b2b83c71829097eec024f5fae768690}\label{shared_8h_a3b2b83c71829097eec024f5fae768690}} 
+\index{shared.h@{shared.h}!parse\_string@{parse\_string}}
+\index{parse\_string@{parse\_string}!shared.h@{shared.h}}
+\doxysubsubsection{\texorpdfstring{parse\_string()}{parse\_string()}}
+{\footnotesize\ttfamily void parse\+\_\+string (\begin{DoxyParamCaption}\item[{void $\ast$}]{value,  }\item[{const char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Функция для парсинга строкового значения. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Указатель на переменную, в которую будет записан результат. \\
+\hline
+{\em str} & Строка, содержащая значение. \\
+\hline
+\end{DoxyParams}
