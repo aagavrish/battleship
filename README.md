@@ -37,4 +37,4 @@
 `./LaunchServer`
 
 ### Документация
-Доступна на [https://aagavrish.github.io/battleship/]
+Доступна на https://aagavrish.github.io/battleship/
