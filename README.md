@@ -35,3 +35,6 @@
 Для запуска сервера используйте следующую команду:
 
 `./LaunchServer`
+
+### Документация
+Доступна на `https://aagavrish.github.io/battleship/`
