@@ -33,7 +33,7 @@ make client_compile // for client
 ./LaunchClient -h <host> -p <port> -n <username>
     - <host> is the server host address
     - <port> is the server port
-    - <username]> is your username in the game
+    - <username> is your username in the game
 ```
 
 
