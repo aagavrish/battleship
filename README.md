@@ -44,7 +44,7 @@ make client_compile // for client
 
 - **Operating System**: Compatible with Unix systems.
 - **Compiler**: Requires a C compiler that supports the C standard (e.g., GCC, Clang).
-- **Libraries**: Requires the standard C library and POSIX libraries for networking and threading (on Unix-based systems).
+- **Libraries**: Requires the standard C library and POSIX libraries for networking and processing (on Unix-based systems).
 - **Doxygen**: For generating project documentation from annotated source code.
 - **Git**: For version control management.
 
