@@ -19,21 +19,21 @@ cd battleship
 
 2. Build the project:
 ```bash
-    make server_compile // for server
-    make client_compile // for client
+make server_compile // for server
+make client_compile // for client
 ```
 
 3. Run the server:
 ```bash
-    ./LaunchServer
+./LaunchServer
 ```
 
 4. Run the client:
 ```bash
 ./LaunchClient -h <host> -p <port> -n <username>
-- <host> is the server host address
-- <port> is the server port
-- <username]> is your username in the game
+    - <host> is the server host address
+    - <port> is the server port
+    - <username]> is your username in the game
 ```
 
 
