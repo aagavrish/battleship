@@ -52,7 +52,7 @@ cd battleship
 
 ### Documentation
 
-Available on aagavrish.github.io/battleship
+Available on [aagavrish.github.io/battleship](https://aagavrish.github.io/battleship/)
 
 ### License
 
