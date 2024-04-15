@@ -1,6 +1,9 @@
 /*! @file server.c
-Файл сервера игры "Морской бой".
-@author Гавриш А.А.
+File with the implementation of the server. The server creates a socket, binds it to the address and port,
+listens for incoming connections, and handles the connections. The server creates a child process to handle
+the client connection. The child process creates the game board, places the ships, and handles the game
+process.
+@author Gavrish A.A.
 @date 13.04.2024 */
 
 #include <arpa/inet.h>
@@ -21,7 +24,16 @@
 #define MAX_FIELD_SIZE 20
 #define BUF_CONFIG_SIZE 50
 
+/**
+ * @brief Server configuration.
+ * @see ServerConfig
+ */
 ServerConfig config;
+
+/**
+ * @brief Configuration option.
+ * @see ConfigOption
+ */
 ConfigOption options[] = {
     {"field_size", &config.field_size, parse_int},
     {"number_of_moves", &config.number_of_moves, parse_int},
@@ -42,11 +54,9 @@ bool check_configuration(ServerConfig config);
 GameStatus check_game_status(int number_of_moves, int number_of_ships);
 
 /**
- * @brief Главная функция сервера. Инициализирует конфигурацию, создает сокет сервера,
- * привязывает его к адресу и порту, указанным в конфигурации, и начинает слушать
- * входящие соединения.
- *
- * @return EXIT_SUCCESS в случае успешного завершения, иначе EXIT_FAILURE.
+ * @brief Main function of the server. Initializes the configuration, creates the server socket, binds it to
+ * the address and port, listens for incoming connections, and handles them.
+ * @return EXIT_SUCCESS if the programm was executed successfully, EXIT_FAILURE otherwise.
  */
 int main(void) {
     FILE* config_file = fopen(CONFIG_FILE, "r");
@@ -93,9 +103,11 @@ int main(void) {
 }
 
 /**
- * @brief Инициализирует конфигурацию сервера. Считывает значения из файла конфигурации.
- *
- * @param file Файл конфигурации.
+ * @brief Initializes the configuration of the server. Reads the configuration file and sets the values
+ * of the configuration. The configuration file must be in the format "key=value".
+ * @note The configuration file must contain the following keys: "field_size", "number_of_moves",
+ * @param file Configuration file.
+ * "number_of_ships", "server_port", "server_address".
  * @return void
  */
 void init_configuration(FILE* file) {
@@ -118,11 +130,11 @@ void init_configuration(FILE* file) {
 }
 
 /**
- * @brief Обрабатывает подключение клиента. Создает дочерний процесс, который обрабатывает
- * ходы игрока и отправляет ответы.
- *
- * @param client_socket Сокет клиента.
- * @param server_socket Сокет сервера.
+ * @brief Handles the client connection. Creates a child process to handle the client. The child process
+ * creates the game board, places the ships, and handles the game process.
+ * @note The child process is terminated after the game is finished.
+ * @param client_socket Client socket.
+ * @param server_socket Server socket.
  * @return void
  */
 void handle_client(int client_socket, int server_socket) {
@@ -178,10 +190,12 @@ void handle_client(int client_socket, int server_socket) {
 }
 
 /**
- * @brief Расставляет корабли на игровом поле. Количество кораблей задается в аргументе.
- *
- * @param playing_field Указатель на игровое поле.
- * @param number_of_ships Количество кораблей.
+ * @brief Places ships on the game board. The ships are placed randomly on the board. The number of ships
+ * is specified in the configuration.
+ * @note The ships are placed randomly on the board. The ships are placed in a way that there are no ships
+ * around the ship.
+ * @param playing_field Game board.
+ * @param number_of_ships Number of ships.
  * @return void
  */
 void place_ships(char*** playing_field, int number_of_ships) {
@@ -202,13 +216,14 @@ void place_ships(char*** playing_field, int number_of_ships) {
 }
 
 /**
- * @brief Проверяет, является ли позиция на игровом поле допустимой. Позиция допустима, если
- * вокруг нее нет кораблей.
- *
- * @param playing_field Игровое поле.
- * @param x Координата X.
- * @param y Координата Y.
- * @return true, если позиция допустима, иначе false.
+ * @brief Checks if the position on the game board is valid. The position is valid if there are no ships
+ * around the position.
+ * @note The position is valid if there are no ships around the position.
+ * @param playing_field Game board.
+ * @param x X-coordinate.
+ * @param y Y-coordinate.
+ * @return true if the position is valid, false otherwise.
+ * @see bool
  */
 bool is_valid_position(char** playing_field, int x, int y) {
     for (int dx = -1; dx <= 1; ++dx) {
@@ -231,11 +246,13 @@ bool is_valid_position(char** playing_field, int x, int y) {
 }
 
 /**
- * @brief Проверяет конфигурацию сервера на корректность. Проверяет размер поля и количество кораблей.
- * Если размер поля больше максимального или количество кораблей больше, чем может поместиться на поле,
- *
- * @param config Конфигурация сервера.
- * @return true, если конфигурация допустима, иначе false.
+ * @brief Checks the configuration of the server. The configuration is invalid if the field size is greater
+ * than the maximum field size or the number of ships is greater than the maximum number of ships.
+ * @note The configuration is invalid if the field size is greater than the maximum field size or the number
+ * of ships is greater than the maximum number of ships.
+ * @param config Server configuration.
+ * @return true if the configuration is invalid, false otherwise.
+ * @see ServerConfig, bool
  */
 bool check_configuration(ServerConfig config) {
     if (config.field_size > MAX_FIELD_SIZE) {
@@ -252,9 +269,9 @@ bool check_configuration(ServerConfig config) {
 }
 
 /**
- * @brief Ведет логирование подключения клиента. Записывает в лог время подключения и имя клиента.
- *
- * @param message Сообщение.
+ * @brief Logs the connection of the client. The function logs the time of the connection.
+ * @param message Message to log.
+ * @return void
  */
 void logging(char* message) {
     time_t now = time(NULL);
@@ -268,12 +285,13 @@ void logging(char* message) {
 }
 
 /**
- * @brief Обрабатывает ход игрока. Проверяет, попал ли игрок в корабль, и изменяет игровое поле
- *
- * @param move Ход игрока в формате "XY", где X - буква, Y - число.
- * @param answer Строка, в которую записывается ответ.
- * @param number_of_moves Указатель на количество ходов.
- * @param number_of_ships Указатель на количество кораблей.
+ * @brief Processes the player move. The function checks if the move is valid and processes the move.
+ * The function updates the game board and the number of moves and ships.
+ * @param move Player move.
+ * @param answer Answer to the player move.
+ * @param number_of_moves Number of moves.
+ * @param number_of_ships Number of ships.
+ * @return void
  */
 void process_player_move(char* move, char* answer, int* number_of_moves, int* number_of_ships) {
     if (isalpha(move[0]) == 0 || isdigit(move[1]) == 0) {
@@ -319,11 +337,13 @@ void process_player_move(char* move, char* answer, int* number_of_moves, int* nu
 }
 
 /**
- * @brief Проверяет статус игры. Если количество ходов превышает максимальное, возвращает LOSE.
- *
- * @param number_of_moves Количество ходов.
- * @param number_of_ships Количество кораблей.
- * @return Статус игры.
+ * @brief Checks the game status. The game status is checked based on the number of moves and ships.
+ * The game is won if the number of moves is less than the maximum number of moves and the number of ships
+ * is zero. The game is lost if the number of moves is greater than the maximum number of moves.
+ * @param number_of_moves Number of moves.
+ * @param number_of_ships Number of ships.
+ * @return GameStatus
+ * @see GameStatus
  */
 GameStatus check_game_status(int number_of_moves, int number_of_ships) {
     if (number_of_moves >= config.number_of_moves) {

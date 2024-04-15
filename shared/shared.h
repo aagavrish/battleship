@@ -1,6 +1,8 @@
 /*! @file shared.c
-Файл с общими функциями для сервера и клиента игры "Морской бой".
-@author Гавриш А.А.
+File containing shared functions and structures for the battleship game.
+The shared functions include parsing configuration options and creating and destroying the game board.
+The shared structures include the configuration options and the game board.
+@author Gavrish A.A.
 @date 13.04.2024 */
 
 #ifndef SHARED_H
@@ -16,13 +18,13 @@
 
 /**
  * @struct ServerConfig
- * @brief Структура для хранения конфигурации сервера.
+ * @brief Structure for storing server configuration.
  *
- * @param field_size Размер поля.
- * @param number_of_moves Количество ходов.
- * @param number_of_ships Количество кораблей.
- * @param server_port Порт сервера.
- * @param server_address Адрес сервера.
+ * @param field_size Size of the game board.
+ * @param number_of_moves Number of moves per player.
+ * @param number_of_ships Number of ships on the game board.
+ * @param server_port Port number for the server.
+ * @param server_address IP address of the server.
  */
 typedef struct {
     int field_size;
@@ -34,11 +36,11 @@ typedef struct {
 
 /**
  * @struct ClientConfig
- * @brief Структура для хранения конфигурации клиента.
+ * @brief Structure for storing client configuration.
  *
- * @param client_name[10] Имя клиента.
- * @param server_address[16] Адрес сервера.
- * @param server_port Порт сервера.
+ * @param client_name Name of the client.
+ * @param server_address IP address of the server.
+ * @param server_port Port number for the server.
  */
 typedef struct {
     char client_name[10];
@@ -48,11 +50,15 @@ typedef struct {
 
 /**
  * @struct ConfigOption
- * @brief Структура для хранения опций конфигурации.
+ * @brief Structure for storing configuration options.
+ * The structure contains a key, a pointer to the value, and a function to parse the value.
+ * The key is used to identify the option in the command-line arguments.
+ * The value is a pointer to the variable where the parsed value will be stored.
+ * The parse function is used to convert the string value to the appropriate type.
  *
- * @param key Ключ опции.
- * @param value Значение опции.
- * @param parse Функция для парсинга значения опции.
+ * @param key Key for the configuration option.
+ * @param value Pointer to the variable where the parsed value will be stored.
+ * @param parse Function to parse the value.
  */
 typedef struct {
     const char* key;
@@ -61,20 +67,22 @@ typedef struct {
 } ConfigOption;
 
 /**
- * @brief Перечисленение для хранения логического значения.
+ * @brief Boolean type definition.
+ * Used to represent true and false values.
  */
 typedef enum {
-    false = 0, /**< Ложь*/
-    true = 1   /**< Истина*/
+    false, /**< False value */
+    true   /**< True value */
 } bool;
 
 /**
- * @brief Перечисление для хранения статуса игры.
+ * @brief Enumeration for the game status.
+ * The game status can be NEXT, WIN, or LOSE.
  */
 typedef enum {
-    NEXT = 0, /**< Следующий ход. */
-    WIN,      /**< Победа. */
-    LOSE      /**< Поражение. */
+    NEXT, /**< Next move*/
+    WIN,  /**< Victory */
+    LOSE  /**< Defeat */
 } GameStatus;
 
 void parse_int(void* value, const char* str);

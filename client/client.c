@@ -1,6 +1,10 @@
 /*! @file client.c
-Файл клиента игры "Морской бой".
-@author Гавриш А.А.
+File implementing the client side of the battleship game.
+The client connects to the server, sends the player's name, and then plays the game.
+The player is prompted to enter a move, which is then sent to the server.
+The game board is displayed after each move, showing the player's hits and misses.
+The game continues until all ships have been sunk or the server disconnects.
+@author Gavrish A.A.
 @date 13.04.2024 */
 
 #include <arpa/inet.h>
@@ -15,7 +19,18 @@
 
 #include "../shared/shared.h"
 
+/**
+ * @brief Configuration structure for the client.
+ *
+ * @see ClientConfig
+ */
 ClientConfig config;
+
+/**
+ * @brief Configuration options for the client.
+ *
+ * @see ConfigOption
+ */
 ConfigOption options[] = {
     {"h", &config.server_address, parse_string},
     {"p", &config.server_port, parse_int},
@@ -31,12 +46,11 @@ void connect_to_server(int* client_socket);
 bool make_move(char* move);
 
 /**
- * @brief Главная функция клиента. Инициализирует конфигурацию, создает сокет клиента,
- * подключается к серверу и отправляет имя пользователя.
+ * @brief Main function for the client. Connects to the server, sends the player's name, and plays the game.
  *
- * @param argc Количество аргументов командной строки.
- * @param argv Массив аргументов командной строки.
- * @return EXIT_SUCCESS в случае успешного завершения, иначе EXIT_FAILURE.
+ * @param argc Number of command-line arguments.
+ * @param argv Array of command-line arguments.
+ * @return EXIT_SUCCESS if the program exits successfully, EXIT_FAILURE otherwise.
  */
 int main(int argc, char* argv[]) {
     init_configuration(argc, argv);
@@ -86,13 +100,14 @@ int main(int argc, char* argv[]) {
 }
 
 /**
- * @brief Отображает текущее состояние игры.
- *
- * @param playing_field Игровое поле.
- * @param field_size Размер игрового поля.
- * @param prev_move Предыдущий ход.
- * @param answer Ответ сервера на предыдущий ход.
- *
+ * @brief Displays the current game status. This includes the game board, the last move, the result of the
+ * last move, and the number of ships left.
+ * @param playing_field The game board.
+ * @param field_size The size of the game board.
+ * @param prev_move The last move made by the player.
+ * @param answer The result of the last move.
+ * @param ships_left The number of ships left on the game board.
+ * @return void
  */
 void display_game_status(char** playing_field, int field_size, char* prev_move, char* answer,
                          int ships_left) {
@@ -149,10 +164,12 @@ void display_game_status(char** playing_field, int field_size, char* prev_move, 
 }
 
 /**
- * @brief Инициализирует конфигурацию клиента.
- *
- * @param argc Количество аргументов командной строки.
- * @param argv Массив аргументов командной строки.
+ * @brief Initializes the configuration for the client. Parses the command-line arguments and sets the
+ * configuration values.
+ * @param argc Number of command-line arguments.
+ * @param argv Array of command-line arguments.
+ * @return void
+ * @see ConfigOption
  */
 void init_configuration(int argc, char* argv[]) {
     int opt;
@@ -169,10 +186,10 @@ void init_configuration(int argc, char* argv[]) {
 }
 
 /**
- * @brief Отправляет имя игрока на сервер.
- *
- * @param client_socket Сокет клиента.
- * @param name Имя игрока.
+ * @brief Sends the player's name to the server. The player's name is sent as a message to the server.
+ * @param client_socket The client's socket.
+ * @param name The player's name.
+ * @return void
  */
 void send_player_name(int client_socket, char* name) {
     send(client_socket, name, BUF_MESSAGE_SIZE, 0);
@@ -180,9 +197,10 @@ void send_player_name(int client_socket, char* name) {
 }
 
 /**
- * @brief Подключается к серверу.
- *
- * @param client_socket Сокет клиента.
+ * @brief Connects the client to the server. The client creates a socket and connects to the server using the
+ * server's address and port number.
+ * @param client_socket The client's socket.
+ * @return void
  */
 void connect_to_server(int* client_socket) {
     struct sockaddr_in server_address;
@@ -200,10 +218,9 @@ void connect_to_server(int* client_socket) {
 }
 
 /**
- * @brief Считывает ход игрока.
- *
- * @param move Ход игрока.
- * @return true в случае ошибки, иначе false.
+ * @brief Prompts the player to enter a move. The player's move is read from the standard input.
+ * @param move The player's move.
+ * @return true if the player's move is invalid, false otherwise.
  */
 bool make_move(char* move) {
     int scanf_result = scanf("%3s", move);

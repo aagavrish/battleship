@@ -1,10 +1,12 @@
 PROJECT_NAME           = "Battleship Game Fullstack"
 
-INPUT                  = ./client/ ./server/ ./shared/
+INPUT                  = ./client/ ./server/ ./shared/ README.md
 
 RECURSIVE              = YES
 
 OUTPUT_DIRECTORY       = ./docs
+
+OUTPUT_LANGUAGE        = English
 
 GENERATE_HTML          = YES
 HTML_OUTPUT            = html
@@ -31,5 +33,10 @@ WARN_IF_DOC_ERROR      = YES
 WARN_NO_PARAMDOC       = YES
 QUIET                  = NO
 
-DOXYFILE_ENCODING      = UTF-8
+DISABLE_INDEX = NO
+FULL_SIDEBAR = NO
+HTML_EXTRA_STYLESHEET  = doxygen-awesome/doxygen-awesome.css
+HTML_COLORSTYLE        = LIGHT
 
+DOXYFILE_ENCODING      = UTF-8
+USE_MDFILE_AS_MAINPAGE = README.md

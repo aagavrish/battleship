@@ -1,40 +1,63 @@
-# Документация к игре "Морской бой"
+# Battleship Game Project
 
-"Морской бой" - это классическая игра, в которой два игрока по очереди пытаются уничтожить корабли друг друга.
+## Project Overview
+The Battleship game is a classic board game where players take turns guessing the locations of their opponent's ships on a grid. In this version of the game, the opponent is a computer that randomly places ships and waits for the player's moves. The computer doesn't make moves, but only processes the player's moves. It's a game of strategy, deduction, and a bit of luck. 
 
-## Архитектура
+### Key Features
+- **TCP**: The game uses the TCP protocol for reliable communication between the client and the server.
+- **Multiprocess**: The server uses multiple processes to handle multiple clients simultaneously, ensuring smooth gameplay.
+- **Structured Programming**: The code is written using structured programming principles for better readability and maintainability.
+- **MVC**: The game follows the Model-View-Controller (MVC) design pattern, separating the game logic, user interface, and control flow.
 
-Игра использует архитектуру клиент-сервер. Сервер обрабатывает все игровые сессии, а клиенты подключаются к серверу для игры. Для каждого подключенного пользователя сервер создает новый процесс.
+## Installation and Running
 
-## Файлы
+1. Clone the repository:
+```bash
+git clone https://github.com/aagavrish/battleship.git
+cd battleship
+```
 
-- `server.c`: Этот файл содержит код сервера. Он обрабатывает подключения клиентов и создает новые процессы для каждого пользователя.
-- `client.c`: Этот файл содержит код клиента. Он подключается к серверу и обрабатывает ввод пользователя.
-- `shared.c`: Этот файл содержит определение функций, используемых и клиентом и сервером.
-- `shared.h`: Этот файл содержит объявления функций и структур данных, используемых в `shared.c`.
+2. Build the project:
+```bash
+    make server_compile // for server
+    make client_compile // for client
+```
 
-## Использование
+3. Run the server:
+```bash
+    ./LaunchServer
+```
 
-### Клиент
+4. Run the client:
+```bash
+./LaunchClient -h <host> -p <port> -n <username>
+- <host> is the server host address
+- <port> is the server port
+- <username]> is your username in the game
+```
 
-Для компиляции клиента используйте команду `make client_compile`.
 
-Для запуска клиента используйте следующую команду:
+> **Note:** Server configuration is located in the `config.cfg` file.
 
-`./LaunchClient -h [host] -p [port] -n [username]`
 
-где:
-- `[host]` - адрес хоста сервера
-- `[port]` - порт сервера
-- `[username]` - ваше имя пользователя в игре
+## System and Utility Requirements
 
-### Сервер
+- **Operating System**: Compatible with Unix systems.
+- **Compiler**: Requires a C compiler that supports the C standard (e.g., GCC, Clang).
+- **Libraries**: Requires the standard C library and POSIX libraries for networking and threading (on Unix-based systems).
+- **Doxygen**: For generating project documentation from annotated source code.
+- **Git**: For version control management.
 
-Для компиляции сервера используйте команду `make server_compile`.
+## Additional Information
 
-Для запуска сервера используйте следующую команду:
+### Documentation
 
-`./LaunchServer`
+Available on aagavrish.github.io/battleship
 
-### Документация
-Доступна на https://aagavrish.github.io/battleship/
+### License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+### Contact
+
+If you have any questions, issues, or suggestions, please feel free to open an issue in the repository or contact us on Telegram: `aagavrish`.
